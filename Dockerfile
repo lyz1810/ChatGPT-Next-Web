@@ -13,6 +13,7 @@ RUN yarn install
 
 FROM base AS builder
 
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories    #更换镜像源
 RUN apk update && apk add --no-cache git
 
 ENV OPENAI_API_KEY=""
